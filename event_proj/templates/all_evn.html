@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Events</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>EVENT MANAGEMENT SYSTEM at University of Florence</h1>
+        <hr>
+        <a class="btn btn-success" href="all_evn" role="button">Registered Events</a>
+        <a class="btn btn-primary" href="add_evn" role="button">Add Event</a>
+        <a class="btn btn-primary" href="remove_evn" role="button">Remove/Cancel Event</a>
+        <a class="btn btn-primary" href="filter_evn" role="button">Filter Events</a>
+
+    </div>
+    <hr>
+    <h2>Total Events</h2>
+    <hr>
+   <table class="table">
+    <thead class="thead-dark">
+    <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name </th>
+                <th scope="col">Role</th>
+                <th scope="col">Department </th>
+                <th scope="col">Booking date </th>
+
+                </th>
+            </tr>
+        </thead>
+        {% for evn in evns %}
+        <tbody>
+            <tr>
+                <th scope="row">{{emp.id}}</th>
+                <td>{{evn.first_name}}</td>
+                <td>{{evn.last_name}}</td>
+                <td>{{evn.role.name}}</td>
+                <td>{{evn.dept.location}}</td>
+                <td>{{evn.book_date}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+<hr>
+</body>
+
+</html>
