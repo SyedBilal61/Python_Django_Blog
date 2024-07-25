@@ -1,21 +1,26 @@
+# Use the official Python image from the Docker Hub as the base image
 FROM python:3.8-slim-buster
 
+# Set environment variables to ensure the output is not buffered and no .pyc files are written
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
+# Set the working directory in the container
 WORKDIR /app
 
 # Copy the requirements file into the container
-
-COPY requirements.txt requirements.txt
+# Ensure the file exists in the build context and is named correctly
+COPY requirements.txt /app/
 # Install the dependencies
-RUN pip3 install -r requirements.txt
+# Use --no-cache-dir to prevent caching issues
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container
-COPY . .
+COPY . /app/
 
-
+# Expose the port the application will run on
 EXPOSE 8000
 
-
-# Expose the port the app runs on
-EXPOSE 8000
-CMD python manage.py runserver
+# Define the command to run the application
+# Use `gunicorn` for production environments instead of `runserver`
+CMD ["gunicorn", "Event_management_proj.wsgi:application", "--bind", "0.0.0.0:8000"]
