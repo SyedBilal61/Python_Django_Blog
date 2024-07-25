@@ -5,7 +5,6 @@ This project is an Event Management System where users can create, manage, and a
 
 ## Features
 
-- User registration and authentication
 - Event creation and management
 - Event registration for users
 - Event attendance tracking
@@ -17,3 +16,7 @@ This project is an Event Management System where users can create, manage, and a
 - Django 3.2 or higher
 - SQLite (default Django database)
 - Docker and Docker Compose (for containerized deployment)
+
+## WEBHOSTING SERVER 
+https://syedbilal61.pythonanywhere.com/
+
