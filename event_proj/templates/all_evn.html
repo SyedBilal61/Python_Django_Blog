@@ -12,10 +12,13 @@
     <div class="container-fluid">
         <h1>EVENT MANAGEMENT SYSTEM at University of Florence</h1>
         <hr>
-        <a class="btn btn-success" href="all_evn" role="button">Registered Events</a>
-        <a class="btn btn-primary" href="add_evn" role="button">Add Event</a>
-        <a class="btn btn-primary" href="remove_evn" role="button">Remove/Cancel Event</a>
-        <a class="btn btn-primary" href="filter_evn" role="button">Filter Events</a>
+        <div class="d-flex justify-content-end">
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+          </div><hr>
+        <a class="btn btn-success" href="{% url 'all_evn' %}"role="button">Registered Events</a>
+        <a class="btn btn-primary" href="{% url 'add_evn' %}" role="button">Add Event</a>
+        <a class="btn btn-primary" href="{% url 'remove_evn' %}" role="button">Remove/Cancel Event</a>
+        <a class="btn btn-primary" href="{% url 'filter_evn' %}" role="button">Filter Events</a>
 
     </div>
     <hr>
