@@ -1,5 +1,5 @@
-# Python_Django_Blog
-# Event Management System
+
+# Python_Django_Event Management System
 
 This project is an Event Management System where users can create, manage, and attend events. The system includes features such as event creation, event registration, and event attendance tracking. It defines relationships between users, events, and registrations, and provides templates for displaying event details and attendee information.
 
