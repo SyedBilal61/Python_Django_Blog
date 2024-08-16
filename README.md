@@ -20,3 +20,6 @@ This project is an Event Management System where users can create, manage, and a
 ## WEBHOSTING SERVER 
 https://syedbilal61.pythonanywhere.com/
 
+** In case of webhosting server is not working open the terminal and change the directory  and then run the command (python manage.py runserver) and you will find a link you just copy paste this link in to your browser and check the funcnalities of the project**
+
+
