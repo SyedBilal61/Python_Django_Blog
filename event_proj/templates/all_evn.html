@@ -40,11 +40,11 @@
         {% for evn in evns %}
         <tbody>
             <tr>
-                <th scope="row">{{emp.id}}</th>
+                <th scope="row">{{ forloop.counter }}</th>
                 <td>{{evn.first_name}}</td>
                 <td>{{evn.last_name}}</td>
-                <td>{{evn.role.name}}</td>
-                <td>{{evn.dept.name}}</td>
+                <td>{{evn.role}}</td>
+                <td>{{evn.dept}}</td>
                 <td>{{evn.book_date}}</td>
             </tr>
         </tbody>
