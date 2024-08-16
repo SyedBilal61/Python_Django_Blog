@@ -18,8 +18,8 @@ class Role(models.Model):
 class Events(models.Model):
     first_name= models.CharField(max_length=100, null= False)
     last_name= models.CharField(max_length=100)
-    dept = models.ForeignKey(Department, on_delete= models.CASCADE)
-    role =models.ForeignKey(Role, on_delete= models.CASCADE)
+    dept = models.CharField(max_length=100)
+    role =models.CharField(max_length=100)
     book_date=models.DateField()
     
     def __str__(self):

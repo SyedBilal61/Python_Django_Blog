@@ -13,6 +13,9 @@ def index(request):
 @login_required(login_url='login')
 def all_evn(request):
     evns = Events.objects.all()
+    for evn in evns:
+        print(f"ID: {evn.id}, First Name: {evn.first_name}, Last Name: {evn.last_name}, Role: {evn.role}, Department: {evn.dept}, Booking Date: {evn.book_date}")
+        print(evns)
     context = {
         'evns': evns
     }
@@ -24,15 +27,15 @@ def add_evn(request):
     if request.method == 'POST':
         first_name = request.POST.get('first_name', '')
         last_name = request.POST.get('last_name', '')
-        role_id = request.POST.get('role', '')
-        dept_id = request.POST.get('dept', '')
+        role = request.POST.get('role', '')
+        dept = request.POST.get('dept', '')
         book_date = datetime.now().date()  # Using current date instead of form date
 
         new_evn = Events(
             first_name=first_name, 
             last_name=last_name, 
-            dept_id=dept_id, 
-            role_id=role_id, 
+            dept=dept, 
+            role=role, 
             book_date=book_date
         )
         new_evn.save()
@@ -74,9 +77,9 @@ def filter_evn(request):
         if name:
             evns = evns.filter(Q(first_name__icontains=name) | Q(last_name__icontains=name))
         if dept:
-            evns = evns.filter(dept__name__icontains=dept)  # Correctly filter by department name
+            evns = evns.filter(dept__icontains=dept)  # Correctly filter by department name
         if role:
-            evns = evns.filter(role__name__icontains=role)  # Correctly filter by role name
+            evns = evns.filter(role__icontains=role)  # Correctly filter by role name
 
         # Prepare context and render the result
         context = {
